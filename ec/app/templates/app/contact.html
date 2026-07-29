@@ -1,0 +1,71 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Contact FZH{% endblock title %}
+
+{% block main-content %}
+<!-- Hero Section - Full Width -->
+<div class="container-fluid px-0">
+    <div class="position-relative" style="z-index: 1;">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+             class="img-fluid w-100"
+             style="height: 90vh; object-fit: cover; filter: brightness(0.85);"
+             alt="Contact FZH">
+        <div class="position-absolute top-50 start-50 translate-middle text-center" style="z-index: 2;">
+            <h1 class="display-3 fw-light mb-0" style="letter-spacing: 0.5rem; color:rgb(255, 255, 255);">CONTACT</h1>
+            <p class="mt-3" style="letter-spacing: 0.2rem; color:rgb(255, 255, 255); font-size: 1.1rem;">We'd love to hear from you</p>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Information Section -->
+<div class="container py-5 my-5" style="max-width: 700px; z-index: 1;">
+    <div class="text-center px-2">
+        <h2 class="fw-light mb-4" style="color: #a08c7a; letter-spacing: 0.1rem;">GET IN TOUCH</h2>
+        <p class="lead" style="line-height: 2; color: #7a6b5a; font-size: 1.1rem;">
+            Whether you have a question about our products, services, or anything else, our team is ready to answer all your questions.
+        </p>
+        <div class="mt-4">
+            <p style="color: #7a6b5a; font-size: 1.1rem;"><strong>Address:</strong> 123 Serenity Street, Calm City, CC 12345</p>
+            <p style="color: #7a6b5a; font-size: 1.1rem;"><strong>Email:</strong> contact@fzhstudio.com</p>
+            <p style="color: #7a6b5a; font-size: 1.1rem;"><strong>Phone:</strong> +1 234 567 8901</p>
+        </div>
+    </div>
+</div>
+
+<!-- Map or Gallery Image -->
+<div class="container-fluid px-0">
+    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2"
+         class="img-fluid w-100"
+         style="height: 500px; object-fit: cover;"
+         alt="FZH Location">
+</div>
+
+<!-- Final Message -->
+<div class="container-fluid py-5" style="background-color: #e5dcd1;">
+    <div class="container text-center py-4">
+        <p class="display-6 fw-light" style="color: #7a6b5a; letter-spacing: 0.1rem;">
+           Less for better living.
+        </p>
+    </div>
+</div>
+
+<!-- Resources -->
+<style>
+    body {
+        font-family: 'Helvetica Neue', sans-serif;
+        overflow-x: hidden;
+        background-color: #f9f9f9;
+    }
+    h1, h2, h3 {
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+    .lead {
+        font-weight: 350;
+    }
+    .navbar {
+        z-index: 1000;
+        position: relative;
+    }
+</style>
+{% endblock main-content %}

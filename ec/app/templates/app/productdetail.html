@@ -1,0 +1,63 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Category{% endblock title %}
+
+{% block main-content %}
+    <div class="container">
+        <div class="row flex justify-content-between">
+            <div class="img2 col-lg-5 mt-5">
+                <img src="{{product.product_image.url}}" class="image col-xs-6 col-sm-12 mt-3 text-sm-center w-100 h-75" alt="">
+            </div>
+            <div class="productdetail col-lg-5 mt-3">
+                <h1 style="font-family: Georgia; font-size: 50px;">{{product.title}}</h1>
+                <h5>{{product.selling_price}} Dhs</h5>
+                <small class="fw-light text-decoration-line_through text-muted fs-5">-{{product.discounted_price}}%</small>
+                <br><br><h4>Product Features<h4/>
+                <ul class="fs-5" style="font-family: Rajdhani;">
+                    <li>{{product.description}}</li>
+                </ul> 
+                
+                    <form action="/add-to-cart" class="d-inline">
+                        <input type="hidden" name="prod_id" value={{product.id}} />                        <button type="submit" class="btn btn-primary shadow px-5 py-2 ">Add to Cart</button>
+                    </form>
+                    <br> <br>
+                    <a href="{% url 'wishlist'%}" class="btn btn-outline-danger add-to-wishlist" pid="{{ product.id }}">
+                    <i class="fas fa-heart"></i> Ajouter à la wishlist
+                    </a>
+                    <a href="#" class="btn btn-outline-secondary remove-from-wishlist" pid="{{ product.id }}">
+                    <i class="fas fa-heart-broken"></i> Retirer de la wishlist
+</a>
+                  
+                   
+                             
+            </div>        
+        </div>    
+    </div>    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('.add-to-wishlist').click(function () {
+        var id = $(this).attr("pid");
+        $.ajax({
+            type: "GET",
+            url: "/add-to-wishlist/",
+            data: { prod_id: id },
+            success: function (response) {
+                alert(response.message);
+            }
+        });
+    });
+
+    $('.remove-from-wishlist').click(function () {
+        var id = $(this).attr("pid");
+        $.ajax({
+            type: "GET",
+            url: "/remove-from-wishlist/",
+            data: { prod_id: id },
+            success: function (response) {
+                alert(response.message);
+            }
+        });
+    });
+</script>
+
+{% endblock main-content %}

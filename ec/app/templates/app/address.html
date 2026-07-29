@@ -1,0 +1,141 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Address{% endblock title %}
+
+{% block main-content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-3 border-end">
+            <div class="sidebar-content">
+                <h3 class="welcome-msg mb-3">Welcome <span class="text-capitalize">{{request.user}}</span></h3>
+                <div class="d-flex flex-column gap-2">
+                    <a href="{% url 'profile' %}" class="btn btn-menu">Profile</a>
+                    <a href="{% url 'address' %}" class="btn btn-menu active">Address</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-sm-8 ps-5">
+            <div class="row">
+                {% for ad in add %}
+                <div class="col-sm-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3>Address {{forloop.counter}}</h3>
+                            <p>Name: {{ad.name}}</p>
+                            <p>Locality: {{ad.locality}}</p>
+                            <p>Mobile: {{ad.mobile}}</p>
+                            <p>City: {{ad.city}}</p>
+                            <div class="text-center mt-3">
+                                <a href="{% url 'updateAddress' pk=ad.id %}" type="button" class="btn btn-success px-4">Update</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #f5f2ed, #ffffff);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-attachment: fixed;
+        min-height: 100vh;
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+
+    h3.welcome-msg {
+        color: #7a6b5a;
+        font-weight: 400;
+        letter-spacing: 1px;
+        margin-left: 5px;
+    }
+
+    .border-end {
+        border-right: 1px solid rgba(122, 107, 90, 0.2) !important;
+    }
+
+    .sidebar-content {
+        padding: 15px 15px 15px 20px;
+    }
+
+    .btn-menu {
+        background-color: #f8f9fa;
+        color: #7a6b5a;
+        border: 1px solid #dee2e6;
+        border-radius: 30px;
+        text-align: left;
+        padding: 8px 15px;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+    .btn-menu:hover {
+        background-color: #e9ecef;
+    }
+
+    .btn-menu.active {
+        background-color: #7a6b5a;
+        color: white;
+        border-color: #7a6b5a;
+        font-weight: 500;
+    }
+
+    .card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        background: white;
+        height: 100%;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(122, 107, 90, 0.1);
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .card-body h3 {
+        color: #5e5044;
+        font-size: 1.25rem;
+        border-bottom: 1px solid #f0e6dc;
+        padding-bottom: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .card-body p {
+        color: #7a6b5a;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+    }
+
+    .btn-success {
+        background-color: #8a9d7b;
+        border: none;
+        border-radius: 20px;
+        padding: 8px 20px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-success:hover {
+        background-color: #6d7d60;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(122, 107, 90, 0.1);
+    }
+
+    .text-capitalize {
+        color: #8a9d7b;
+        font-weight: 500;
+    }
+</style>
+{% endblock main-content %}

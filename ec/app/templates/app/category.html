@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Category{% endblock title %}
+
+{% block main-content %}
+    <div class="container-fluid my-5 px-0">  <!-- container-fluid + px-0 pour suppression des marges -->
+        <div class="row mx-0">  <!-- mx-0 pour supprimer les marges horizontales -->
+            <div class="col-12">  <!-- Colonne unique pour toute la largeur -->
+                <div class="row justify-content-center">  <!-- Centrage optionnel -->
+                    {% for prod in product %}
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-5 px-2">  <!-- 4 produits/ligne sur grand écran -->
+                            <a href="{% url 'product-detail' prod.id %}" class="text-decoration-none">
+                                <div class="product-card h-100 p-3 border-0 shadow-sm rounded">  <!-- Card stylisée -->
+                                    <img 
+                                        src="{{prod.product_image.url}}" 
+                                        class="img-fluid w-100 rounded-top" 
+                                        style="height: 250px; object-fit: cover;" 
+                                        alt="{{prod.title}}"
+                                    />
+                                    <div class="p-2">
+                                        <div class="fw-bold text-dark">{{prod.title}}</div>
+                                        <div class="d-flex align-items-center justify-content-between mt-2">
+                                            <span class="text-danger fw-bold fs-5">MAD {{prod.selling_price}}</span>
+                                            <small class="text-muted ">-{{prod.discounted_price}}%</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>   
+            </div>
+        </div>
+    </div>
+{% endblock main-content %}

@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+{% block title %}Ma Wishlist{% endblock %}
+
+{% block main-content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Ma Liste de Souhaits</h2>
+    {% if wishlist_items %}
+        <div class="row">
+            {% for item in wishlist_items %}
+            <div class="col-md-4">
+                <div class="card mb-3 shadow-sm">
+                    <img src="{{ item.product.product_image.url }}" class="card-img-top" alt="{{ item.product.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.product.title }}</h5>
+                        <p class="card-text">{{ item.product.description }}</p>
+                        <p class="card-text"><strong>{{ item.product.selling_price }} Dhs</strong></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Votre liste de souhaits est vide.</p>
+    {% endif %}
+</div>
+{% endblock %}
+

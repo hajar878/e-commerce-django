@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+{% block title %}Checkout{% endblock %}
+
+{% block main-content %}
+<div class="container mt-5">
+    <h2 class="mb-4">🧾 Order Summary</h2>
+    <ul class="list-group mb-3">
+        {% for item in cart_items %}
+        <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+                <h6 class="my-0">{{ item.product.title }} × {{ item.quantity }}</h6>
+                <small class="text-muted">{{ item.product.description }}</small>
+            </div>
+            <span class="text-muted">{{ item.product.selling_price }} Dhs</span>
+        </li>
+        {% endfor %}
+        <li class="list-group-item d-flex justify-content-between">
+            <span>Subtotal</span>
+            <strong>{{ amount }} Dhs</strong>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            <span>Shipping</span>
+            <strong>40 Dhs</strong>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            <span>Total</span>
+            <strong>{{ totalamount }} Dhs</strong>
+        </li>
+    </ul>
+
+    
+</div>
+{% endblock %}
+
+

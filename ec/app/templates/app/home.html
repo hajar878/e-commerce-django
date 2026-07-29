@@ -1,0 +1,159 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner_slider %}
+<!-- Carousel Slider -->
+<div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'app/images/banner/b8.PNG' %}" class="d-block w-100" style="max-height: 500px; object-fit: cover;" alt="Banner 1">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/b5.PNG' %}" class="d-block w-100" style="max-height: 500px; object-fit: cover;" alt="Banner 2">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/b6.PNG' %}" class="d-block w-100" style="max-height: 500px; object-fit: cover;" alt="Banner 3">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/b7.PNG' %}" class="d-block w-100" style="max-height: 500px; object-fit: cover;" alt="Banner 3">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+{% endblock banner_slider %}
+
+{% block information %}
+<!-- Information Section -->
+<div class="container">
+    <div class="row text-center p-5 text-white border-bottom shadow" style="background-color: #50371D;">
+        <h1>Products</h1>
+        <small class="fs-5">
+            Discover timeless elegance with FZH's exquisite collections.
+            From handcrafted beds to designer sofas, elegant dining tables to functional bookshelves,
+            each piece is designed to elevate your living space.
+        </small>
+    </div>
+</div> 
+{% endblock information %}
+
+{% block main-content %}
+<!-- Main Products Section -->
+<div class="container mt-5">
+    <h2 class="text-center mb-5">FZH Products</h2>
+    
+    <div class="row">
+        <!-- Bed Product -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <a href="{% url 'category' 'Bd' %}" class="text-decoration-none text-dark">
+                <div class="product-card">
+                    <div class="product-img text-center">
+                        <img src="{% static 'app/images/product/bed3.PNG' %}" class="img-fluid" alt="Bed">
+                    </div>
+                    <p class="product-title text-center mt-3">Bed</p>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Sofa Product -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <a href="{% url 'category' 'Sf'%}" class="text-decoration-none text-dark">
+                <div class="product-card">
+                    <div class="product-img text-center">
+                        <img src="{% static 'app/images/product/sofa4.PNG' %}" class="img-fluid" alt="Sofa">
+                    </div>
+                    <p class="product-title text-center mt-3">Sofa</p>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Dining Table Product -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <a href="{% url 'category' 'Dt'%}" class="text-decoration-none text-dark">
+                <div class="product-card">
+                    <div class="product-img text-center">
+                        <img src="{% static 'app/images/product/table2.PNG' %}" class="img-fluid" alt="Dining Table">
+                    </div>
+                    <p class="product-title text-center mt-3">Dining Table</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <!-- Bookshelf Product -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <a href="{% url 'category' 'Bs'%}" class="text-decoration-none text-dark">
+                <div class="product-card">
+                    <div class="product-img text-center">
+                        <img src="{% static 'app/images/product/book3.PNG' %}" class="img-fluid" alt="Bed">
+                    </div>
+                    <p class="product-title text-center mt-3">Bookshelf</p>
+                </div>
+            </a>
+        </div>
+        
+        <!-- coffee table Product -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <a href="{% url 'category' 'Ct'%}" class="text-decoration-none text-dark">
+                <div class="product-card">
+                    <div class="product-img text-center">
+                        <img src="{% static 'app/images/product/ct4.PNG' %}" class="img-fluid" alt="Sofa">
+                    </div>
+                    <p class="product-title text-center mt-3">Coffee table</p>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Desk Product -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <a href="{% url 'category' 'Dk'%}" class="text-decoration-none text-dark">
+                <div class="product-card">
+                    <div class="product-img text-center">
+                        <img src="{% static 'app/images/product/desk2.PNG' %}" class="img-fluid" alt="Dining Table">
+                    </div>
+                    <p class="product-title text-center mt-3">Desk</p>
+                </div>
+            </a>
+        </div>
+        <!-- Mirrors Product -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <a href="{% url 'category' 'Mr'%}" class="text-decoration-none text-dark">
+                <div class="product-card">
+                    <div class="product-img text-center">
+                        <img src="{% static 'app/images/product/M2.PNG' %}" class="img-fluid" alt="Mirrors">
+                    </div>
+                    <p class="product-title text-center mt-3">Mirrors</p>
+                </div>
+            </a>
+        </div>
+        <!-- Vases Product -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <a href="{% url 'category' 'Vs'%}" class="text-decoration-none text-dark">
+                <div class="product-card">
+                    <div class="product-img text-center">
+                        <img src="{% static 'app/images/product/V1.PNG' %}" class="img-fluid" alt="Vases">
+                    </div>
+                    <p class="product-title text-center mt-3">Vases</p>
+                </div>
+            </a>
+        </div>
+         <!--floor lamps Product -->
+         <div class="col-md-4 col-sm-6 mb-4">
+            <a href="{% url 'category' 'fl'%}" class="text-decoration-none text-dark">
+                <div class="product-card">
+                    <div class="product-img text-center">
+                        <img src="{% static 'app/images/product/fl1.PNG' %}" class="img-fluid" alt="floor lamps">
+                    </div>
+                    <p class="product-title text-center mt-3">floor lamps</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}

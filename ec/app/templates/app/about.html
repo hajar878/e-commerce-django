@@ -1,0 +1,100 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}About FZH{% endblock title %}
+
+{% block main-content %}
+<!-- Hero Section - Full Width -->
+<div class="container-fluid px-0">
+    <div class="position-relative" style="z-index: 1;">
+        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6"
+             class="img-fluid w-100"
+             style="height: 90vh; object-fit: cover; filter: brightness(0.95);"
+             alt="FZH Studio">
+        <div class="position-absolute top-50 start-50 translate-middle text-center" style="z-index: 2;">
+            <h1 class="display-3 fw-light mb-0" style="letter-spacing: 0.5rem; color:rgb(137, 76, 46);">FZH</h1>
+            <p class="mt-1" style="letter-spacing: 0.2rem; color:rgb(137, 76, 46); font-size: 1.1rem;">ESSENCE • SILENCE • FORM</p>
+        </div>
+    </div>
+</div>
+
+<!-- Philosophy Section -->
+<div class="container py-5 my-5" style="max-width: 700px; z-index: 1;">
+    <div class="text-center px-2">
+        <h2 class="fw-light mb-4" style="color: #a08c7a; letter-spacing: 0.1rem;">OUR PHILOSOPHY</h2>
+        <p class="lead" style="line-height: 2; color: #7a6b5a; font-size: 1.1rem;">
+            Born from a fascination with pure volumes and untouched materials, FZH cultivates the art of restraint. 
+            Each piece is designed as a sanctuary of calm, where light interacts with neutral textures and 
+            architectural lines.
+        </p>
+    </div>
+</div>
+
+<!-- Material Focus - 3 Columns -->
+<div class="container-fluid px-0">
+    <div class="row g-0">
+        <div class="col-md-4 text-center p-5" style="background-color: #f5f0ea;">
+            <span class="material-icons" style="font-size: 3rem; color: #b3a08e;">layers</span>
+            <h3 class="fw-light mt-3" style="color: #7a6b5a;">MATERIALS</h3>
+            <p style="color: #9e8e7d;">Raw linen, reclaimed wood, crumpled stone</p>
+        </div>
+        <div class="col-md-4 text-center p-5" style="background-color: #ede6dd;">
+            <span class="material-icons" style="font-size: 3rem; color: #b3a08e;">design_services</span>
+            <h3 class="fw-light mt-3" style="color: #7a6b5a;">CRAFTSMANSHIP</h3>
+            <p style="color: #9e8e7d;">Local artisans, time-honored techniques</p>
+        </div>
+        <div class="col-md-4 text-center p-5" style="background-color: #e5dcd1;">
+            <span class="material-icons" style="font-size: 3rem; color: #b3a08e;">eco</span>
+            <h3 class="fw-light mt-3" style="color: #7a6b5a;">ETHICS</h3>
+            <p style="color: #9e8e7d;">Conscious production, enduring quality</p>
+        </div>
+    </div>
+</div>
+
+<!-- Image Gallery -->
+<div class="container-fluid mt-5">
+    <div class="row g-0">
+        <div class="col-md-6">
+            <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92"
+                 class="img-fluid w-100"
+                 style="height: 500px; object-fit: cover;"
+                 alt="FZH Workshop">
+        </div>
+        <div class="col-md-6">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6"
+                 class="img-fluid w-100"
+                 style="height: 500px; object-fit: cover;"
+                 alt="Material Detail">
+        </div>
+    </div>
+</div>
+
+<!-- Final Quote -->
+<div class="container-fluid py-5" style="background-color: #e5dcd1;">
+    <div class="container text-center py-4">
+        <p class="display-6 fw-light" style="color: #7a6b5a; letter-spacing: 0.1rem;">
+            Less for better living.
+        </p>
+    </div>
+</div>
+
+<!-- Resources -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Helvetica Neue', sans-serif;
+        overflow-x: hidden;
+        background-color: #f9f9f9;
+    }
+    h1, h2, h3 {
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+    .lead {
+        font-weight: 350;
+    }
+    .navbar {
+        z-index: 1000;
+        position: relative;
+    }
+</style>
+{% endblock main-content %}

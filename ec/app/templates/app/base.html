@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href ="{% static 'app/css/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" href ="{% static 'app/css/all.min.css' %}" />
+    <link rel="stylesheet" href ="{% static 'app/css/style.css' %}" />
+    <style>
+        /* Couleur marron */
+        .bg-brown {
+            background-color:#50371D; /* Marron foncé */
+        }
+        /* Style pour le menu déroulant */
+        .dropdown-menu {
+            background-color:#D9A566; /* Marron moyen */
+        }
+        .dropdown-item:hover {
+            background-color:#50371D; /* Marron plus foncé au survol */
+            color: white;
+        }
+        /* Texte en blanc pour meilleur contraste */
+        .navbar-dark .navbar-nav .nav-link {
+            color: white;
+        }
+        /* Bouton Search adapté */
+        .btn-outline-brown {
+            color: white;
+            border-color: white;
+        }
+        .btn-outline-brown:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <title>Furnishings Products | {% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-brown">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="{% static "app/images/Capture6.PNG"%}" width="60" height="60"/>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              {% if request.user.is_authenticated   %}
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Products
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'category' 'Bd'%}">Bed</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'Sf'%}">Sofa</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'Dt'%}">Dining table</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'Bs'%}">Bookshelf</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'Ct'%}">Coffee table</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'Dk'%}">Desk</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'Mr'%}">Mirrors</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'Vs'%}">Vases</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'fl'%}">floor lamps</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-brown" type="submit">Search</button>
+            </form>
+          </div>
+
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown mx-2">
+              <a class="nav-link dropdown-toggle" href="#"
+              id="profileDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">flawer</a>
+              <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                <li><a class="dropdown-item" href="{% url 'profile' %}">Profile<a/></li>
+                <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Change Password<a/></li>
+                <li><form method="post" action="{% url 'logout' %}" class="d-inline">
+                  {% csrf_token %}
+                  <button type="submit" class="dropdown-item" style=" border:none; width:100%; text-align:left;">Logout</button>
+              </form></li>
+              </ul>
+            </li>
+            <li class="nav-item mx-2">
+              <a href="{% url 'showcart' %}" class="nav-link">Cart </a>
+            </li>
+            <li class="nav-item mx-2">
+              <a href="{% url 'wishlist' %}" class="nav-link">wishlist </a>
+            </li>
+            {% else  %}
+            <li class="nav-item mx-2">
+              <a href="{% url 'login' %}" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a href="{% url 'customerregistration' %}" class="nav-link">Registration</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+      {% block banner_slider %}{% endblock banner_slider %}
+      {% block information %}{% endblock information %}
+      {% block main-content %}{% endblock main-content %}
+      
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'app/js/all.min.js' %}"></script>
+    <script src="{% static 'app/js/myscripts.js' %}"></script>
+</body>
+</html> 

@@ -1,0 +1,112 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Customer Registration{% endblock title %}
+{% block main-content %}
+<div class="container">
+    <div class="row my-3">
+        <div class="col-sm-6 offset-sm-3">
+            <h3>Customer Registration</h3>
+            <hr>
+
+            <form action="" method="post" novalidate class="shadow p-5">
+                {% csrf_token %}
+                {% for fm in form %}
+                    {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+                    <br>
+                {% endfor %}
+                <input type="submit" value="Submit" class="btn btn-primary"> <br> 
+                <div class="text-center text-primary fw-bold">
+                    <small> Existing User ? <a href="{% url 'login' %}" class="text-danger">Login Now</a> </small>
+                </div>
+
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p class="alert alert-danger my-3">{{error}}</p>
+                    {% endfor %}
+                {% endif %}
+                {% if messages %}
+                {% for msg in messages %}
+                    <div class="alert alert-{{msg.tags}}" role="alert">
+                        {{msg}}
+                    </div>
+                {% endfor%}
+                {% endif %}                
+            </form>           
+        </div>
+    </div>
+</div>  
+<style>
+    body {
+        background: linear-gradient(135deg, #f5f2ed, #ffffff);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-attachment: fixed;
+    }
+    
+    h3 {
+        color: #7a6b5a;
+        text-align: center;
+        font-weight: 400;
+        letter-spacing: 1px;
+    }
+    
+    form.shadow {
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2px);
+    }
+    
+    form.shadow p, form.shadow small {
+        color: #a08c7a;
+    }
+    
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"],
+    form select {
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid #ccc;
+        padding: 8px 10px;
+        background: transparent;
+        margin-bottom: 10px;
+    }
+    
+    form input[type="text"]:focus,
+    form input[type="email"]:focus,
+    form input[type="password"]:focus,
+    form select:focus {
+        border-bottom: 2px solid #7a6b5a;
+        outline: none;
+        background: transparent;
+    }
+    
+    input[type="submit"].btn-primary {
+        background-color: #7a6b5a;
+        border: none;
+        padding: 10px;
+        border-radius: 30px;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+    
+    input[type="submit"].btn-primary:hover {
+        background-color: #5e5044;
+    }
+    
+    .text-center a.text-danger {
+        color: #7a6b5a !important;
+        text-decoration: none;
+    }
+    
+    .text-center a.text-danger:hover {
+        text-decoration: underline;
+    }
+    
+    .alert {
+        border-radius: 10px;
+    }
+    </style>
+          
+
+{% endblock main-content %}
